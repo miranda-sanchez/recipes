@@ -1,0 +1,24 @@
+@use "../base/colors.scss" as *;
+
+footer {
+    width: 100%;
+    text-align: center;
+    background: $main;
+    color: $background;
+    padding: 10px;
+    ul {
+        display: flex;
+        justify-content: center;
+        li {
+            list-style-type: none;
+            margin: 0 1rem;
+            a, a:active, a:visited{
+                color: $background;
+                text-decoration: none;
+              }
+            a:hover {
+                color: rgba($background, 0.8);
+            }
+        }
+    }
+}
