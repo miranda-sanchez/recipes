@@ -1,11 +1,28 @@
+// Home.js
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 import mealDBAPI from "../api/api";
 
-const Home = ({ search = "" }) => {
+const Home = () => {
+  const { categoryName } = useParams();
   const [categories, setCategories] = useState([]);
   const [filteredCategories, setFilteredCategories] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
+
+  const fetchRecipesByCategory = async (category) => {
+    try {
+      setLoading(true);
+      const response = await mealDBAPI.get(`/filter.php?c=${category}`);
+      const { meals } = response.data;
+      setRecipes(meals);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching recipes:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -31,21 +48,65 @@ const Home = ({ search = "" }) => {
     setFilteredCategories(filteredCategories);
   }, [categories, search]);
 
+  useEffect(() => {
+    const fetchRecipes = async () => {
+      try {
+        // Obtaining all recipes
+        const response = await mealDBAPI.get("/search.php?s=");
+        const { meals } = response.data;
+        setRecipes(meals);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchRecipes();
+  }, []);
+
   return (
     <main className="Home">
-      <h2>Categories</h2>
+      <section className="hero">
+        <form class="d-flex" role="search" onSubmit={(e) => e.preventDefault()}>
+          <input
+            id="searchPosts"
+            class="form-control me-2"
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button class="btn btn-outline-success" type="submit">
+            <FaSearch />
+          </button>
+        </form>
+      </section>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <ul className="categories">
-          {filteredCategories.map((category) => (
-            <li key={category.idCategory}>
-              <Link to={`/recipes/${category.strCategory}`}>
-                {category.strCategory}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <section>
+          <ul className="categories">
+            {filteredCategories.map((category) => (
+              <li key={category.idCategory}>
+                <button
+                  onClick={() => fetchRecipesByCategory(category.strCategory)}
+                >
+                  {category.strCategory}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <h2>Recipes</h2>
+          <ul>
+            {recipes.map((recipe) => (
+              <li key={recipe.idMeal}>
+                <Link to={`/recipes/${categoryName}/${recipe.idMeal}`}>
+                  {recipe.strMeal}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
     </main>
   );

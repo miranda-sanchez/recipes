@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import mealDBAPI from "../api/api";
 
 const RecipePage = () => {
-  const { recipeId } = useParams(); // Solo necesitas el recipeId, no categoryName
+  const { recipeId } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
 

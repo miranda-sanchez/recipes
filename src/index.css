@@ -24,7 +24,7 @@ body {
 
 main {
   flex: 1;
-  margin: 30px 20px;
+  margin: 0 20px 30px 20px;
 }
 
 h1, h2 {
@@ -78,16 +78,16 @@ nav.navbar.bg-body-tertiary {
   padding: 0;
 }
 nav.navbar.bg-body-tertiary div.container-fluid {
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1450980392);
+  border-bottom: 1px solid #36485d;
   padding: 10px 20px;
-  background-color: #36485d;
+  background-color: #ECF8F8;
 }
 nav.navbar.bg-body-tertiary div.container-fluid .nav-link, nav.navbar.bg-body-tertiary div.container-fluid .navbar-toggler, nav.navbar.bg-body-tertiary div.container-fluid .navbar-toggler-icon {
-  color: #fff;
+  color: #36485d;
 }
 nav.navbar.bg-body-tertiary div.container-fluid button.navbar-toggler {
   margin-left: auto;
-  border: 1px solid #ECF8F8;
+  border: 1px solid #36485d;
 }
 nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul li {
   margin-right: 40px;
@@ -101,61 +101,42 @@ nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul 
   bottom: 2px;
   width: 0;
   height: 2px;
-  background-color: #ECF8F8;
+  background-color: #36485d;
   transition: width 0.3s ease;
 }
 nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul li:hover::after {
   width: 100%;
 }
 
-.Header {
-  position: relative;
-}
-.Header .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: #36485d;
-  color: #ECF8F8;
-  padding: 10px;
-  height: 150px;
-  background: url("img/header.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: contain;
-  background-position: top;
-  background-color: #36485d;
-}
-.Header .header-container img {
-  height: 4rem;
-  transform: translateY(-15px);
-}
-.Header .header-container form.d-flex {
+.hero {
   display: flex;
   align-items: center;
-  width: 50%;
-  max-width: 400px;
-  position: static;
+  justify-content: center;
+  height: 500px;
+  background-image: url("img/hero.PNG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-bottom: 1rem;
 }
-.Header .header-container form.d-flex button.btn.btn-outline-success {
-  color: #ECF8F8;
-  background-color: #36485d;
-  border: 1px solid #ECF8F8;
-}
-.Header .header-container form.d-flex button.btn.btn-outline-success:hover {
-  background-color: #db7752;
-}
-.Header .gradient {
-  position: absolute;
-  bottom: 0;
-  background: linear-gradient(0deg, #36485d 10%, rgba(0, 0, 0, 0) 56%);
-  height: 50px;
+.hero form.d-flex {
   width: 100%;
+  max-width: 600px;
 }
 
 .categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+}
+.categories li button {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  text-align: center;
+  border: 1px solid #b9b9b9;
+  border-radius: 10px;
+}
+.categories li button:hover {
+  cursor: pointer;
+  border: 1px solid #36485d;
 }
 
 footer {

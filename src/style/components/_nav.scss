@@ -3,15 +3,15 @@
 nav.navbar.bg-body-tertiary {
   padding: 0;
   div.container-fluid {
-    box-shadow: 0 5px 5px #00000025;
+    border-bottom: 1px solid $main;
     padding: 10px 20px;
-    background-color: $main;
+    background-color: $background;
     .nav-link, .navbar-toggler, .navbar-toggler-icon {
-      color: #fff;
+      color: $main;
     }
     button.navbar-toggler {
       margin-left: auto;
-      border: 1px solid $background;
+      border: 1px solid $main;
     }
     div.collapse.navbar-collapse {
       ul li {
@@ -25,7 +25,7 @@ nav.navbar.bg-body-tertiary {
           bottom: 2px;
           width: 0;
           height: 2px; 
-          background-color: $background;
+          background-color: $main;
           transition: width 0.3s ease;
         }
         &:hover::after {
