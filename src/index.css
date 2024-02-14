@@ -112,7 +112,7 @@ nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul 
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 500px;
+  height: 60vh;
   background-image: url("img/hero.PNG");
   background-repeat: no-repeat;
   background-size: cover;
@@ -123,20 +123,42 @@ nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul 
   width: 100%;
   max-width: 600px;
 }
+.hero form.d-flex input:focus {
+  box-shadow: none;
+  border: 1px solid #36485d;
+}
+.hero form.d-flex button {
+  background-color: #db7752;
+  border: none;
+  color: #fff;
+}
+.hero form.d-flex button:hover {
+  background-color: rgba(219, 119, 82, 0.9);
+}
 
-.categories {
+.categories-list {
   display: flex;
 }
-.categories li button {
+.categories-list li button {
   padding: 0.5rem;
   margin-right: 0.5rem;
   text-align: center;
   border: 1px solid #b9b9b9;
   border-radius: 10px;
 }
-.categories li button:hover {
+.categories-list li button:hover {
   cursor: pointer;
   border: 1px solid #36485d;
+}
+
+.recipes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  text-align: center;
+}
+.recipes-list li {
+  border: 1px solid #b9b9b9;
+  border-radius: 10px;
 }
 
 footer {

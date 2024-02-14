@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 60vh;
     background-image: url("img/hero.PNG");
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,10 +12,22 @@
     form.d-flex {
         width: 100%;
         max-width: 600px;
+        input:focus {
+            box-shadow: none;
+            border: 1px solid $main;
+        }
+        button {
+            background-color: $action;
+            border: none;
+            color: #fff;
+            &:hover {
+                background-color: rgba($action, 0.9);
+            }
+        }
     }
 }
 
-.categories {
+.categories-list {
     display: flex;
     li button {
         padding: 0.5rem;
@@ -29,4 +41,14 @@
         }
     }
     
+}
+
+.recipes-list {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
+    text-align: center;
+    li {
+        border: 1px solid $gray;
+        border-radius: 10px;
+    }
 }

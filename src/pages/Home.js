@@ -1,4 +1,3 @@
-// Home.js
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
@@ -85,7 +84,7 @@ const Home = () => {
         <p>Loading...</p>
       ) : (
         <section>
-          <ul className="categories">
+          <ul className="categories-list">
             {filteredCategories.map((category) => (
               <li key={category.idCategory}>
                 <button
@@ -97,7 +96,7 @@ const Home = () => {
             ))}
           </ul>
           <h2>Recipes</h2>
-          <ul>
+          <ul className="recipes-list">
             {recipes.map((recipe) => (
               <li key={recipe.idMeal}>
                 <Link to={`/recipes/${categoryName}/${recipe.idMeal}`}>
