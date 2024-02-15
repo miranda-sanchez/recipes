@@ -50,8 +50,8 @@ const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        // Obtaining all recipes
-        const response = await mealDBAPI.get("/search.php?s=");
+        // Obtaining recipes based on search term
+        const response = await mealDBAPI.get(`/search.php?s=${search}`);
         const { meals } = response.data;
         setRecipes(meals);
       } catch (error) {
@@ -60,51 +60,65 @@ const Home = () => {
     };
 
     fetchRecipes();
-  }, []);
+  }, [search]);
 
   return (
     <main className="Home">
       <section className="hero">
-        <form class="d-flex" role="search" onSubmit={(e) => e.preventDefault()}>
+        <form
+          className="d-flex"
+          role="search"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <input
             id="searchPosts"
-            class="form-control me-2"
+            className="form-control me-2"
             type="text"
             placeholder="Search"
             aria-label="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          <button class="btn btn-outline-success" type="submit">
+          <button className="btn btn-outline-success" type="submit">
             <FaSearch />
           </button>
         </form>
       </section>
+
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <section>
-          <ul className="categories-list">
-            {filteredCategories.map((category) => (
-              <li key={category.idCategory}>
-                <button
-                  onClick={() => fetchRecipesByCategory(category.strCategory)}
-                >
-                  {category.strCategory}
-                </button>
-              </li>
-            ))}
-          </ul>
-          <h2>Recipes</h2>
-          <ul className="recipes-list">
-            {recipes.map((recipe) => (
-              <li key={recipe.idMeal}>
-                <Link to={`/recipes/${categoryName}/${recipe.idMeal}`}>
-                  {recipe.strMeal}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <section className="main-container">
+          <div className="categories">
+            <h3>Categories</h3>
+            <ul className="categories-list">
+              {filteredCategories.map((category) => (
+                <li key={category.idCategory}>
+                  <button
+                    onClick={() => fetchRecipesByCategory(category.strCategory)}
+                  >
+                    {category.strCategory}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="recipes">
+            <h2>Recipes</h2>
+            <ul className="recipes-list">
+              {recipes.map((recipe) => (
+                <li key={recipe.idMeal}>
+                  <Link to={`/recipes/${categoryName}/${recipe.idMeal}`}>
+                    <div className="recipe-item">
+                      <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+                      <span>{recipe.strMeal}</span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       )}
     </main>

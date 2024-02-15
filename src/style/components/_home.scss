@@ -27,28 +27,42 @@
     }
 }
 
-.categories-list {
-    display: flex;
-    li button {
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+.categories{
+    margin-top: 4rem;
+    .categories-list {
         padding: 0.5rem;
-        margin-right: 0.5rem;
-        text-align: center;
-        border: 1px solid $gray;
-        border-radius: 10px;
-        &:hover {
-            cursor: pointer;
-            border: 1px solid $main;
+        li button {
+            padding: 0.2rem;
+            text-align: center;
+            border: none;
+            background-color: transparent;
+            &:hover {
+                cursor: pointer;
+            }
         }
+        
     }
-    
 }
 
-.recipes-list {
-    display: grid;
-    grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
-    text-align: center;
-    li {
-        border: 1px solid $gray;
-        border-radius: 10px;
+    
+    .recipes-list {
+        display: grid;
+        grid-template-columns: repeat( auto-fill, minmax(250px, 1fr) );
+        text-align: center;
+        gap: 1.5rem;
+        li {
+            border: 1px solid $gray;
+            .recipe-item {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+                span {
+                    padding: 2rem 0;
+                }
+            }
+        }
     }
 }
