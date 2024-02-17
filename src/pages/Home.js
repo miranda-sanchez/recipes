@@ -170,7 +170,7 @@ const Home = () => {
                     aria-expanded="true"
                     aria-controls="areaCollapse"
                   >
-                    Area
+                    Areas
                   </button>
                 </h3>
                 <ul

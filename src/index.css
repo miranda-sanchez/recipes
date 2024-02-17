@@ -135,9 +135,13 @@ nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul 
   width: 100%;
   max-width: 600px;
 }
+.hero form.d-flex input {
+  border: 1px solid #36485d;
+  border-radius: 5px;
+}
 .hero form.d-flex input:focus {
   box-shadow: none;
-  border: 1px solid #36485d;
+  border: 1px solid #db7752;
 }
 .hero form.d-flex button {
   background-color: #db7752;
