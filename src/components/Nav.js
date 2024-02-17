@@ -15,8 +15,6 @@ const Nav = () => {
         <button
           className="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded={isMenuExpanded ? "true" : "false"}
           aria-label="Toggle navigation"
@@ -32,11 +30,6 @@ const Nav = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/post">
-                Post
               </Link>
             </li>
             <li className="nav-item">
