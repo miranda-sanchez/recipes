@@ -8,11 +8,12 @@ import Missing from "./pages/Missing";
 import Footer from "./components/Footer";
 
 function App() {
+  const title = "Gourmet Galore";
   return (
     <div className="App">
       <Nav />
       <Routes>
-        <Route index exact path="/" element={<Home />} />
+        <Route index exact path="/" element={<Home title={title} />} />
         <Route
           path="/recipes/:categoryName/:recipeId"
           element={<RecipePage />}

@@ -4,17 +4,38 @@ import { FaSearch, FaSearchPlus } from "react-icons/fa";
 import mealDBAPI from "../api/api";
 import useWindowSize from "../hooks/useWindowSize";
 
-const Home = () => {
+const Home = ({ title }) => {
   const { categoryName } = useParams();
+
   const [categories, setCategories] = useState([]);
+  const [areas, setAreas] = useState([]);
+
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [areas, setAreas] = useState([]);
+
+  //Handling filter options
   const [accordionOpen, setAccordionOpen] = useState(false);
 
+  //Handling .hero transition
+  const [isSearchActive, setIsSearchActive] = useState(false);
+
   const { width } = useWindowSize();
-  const heroHeight = width >= 1200 ? 500 : width >= 992 ? 400 : 320;
+  const heroHeight = isSearchActive
+    ? 200
+    : width >= 1200
+    ? 500
+    : width >= 992
+    ? 400
+    : 320;
+
+  const handleSearchFocus = () => {
+    setIsSearchActive(true);
+  };
+
+  const handleSearchBlur = () => {
+    setIsSearchActive(false);
+  };
 
   const fetchRecipesByCategory = async (category) => {
     try {
@@ -90,7 +111,10 @@ const Home = () => {
 
   return (
     <main className="Home">
-      <section className="hero" style={{ height: `${heroHeight}px` }}>
+      <section
+        className={`hero ${isSearchActive ? "hero-active" : ""}`}
+        style={{ height: `${heroHeight}px` }}
+      >
         <form
           className="d-flex"
           role="search"
@@ -104,12 +128,16 @@ const Home = () => {
             aria-label="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onFocus={handleSearchFocus}
+            onBlur={handleSearchBlur}
           />
           <button className="btn btn-outline-success" type="submit">
             <FaSearch />
           </button>
         </form>
       </section>
+
+      <h1>{title}</h1>
 
       {loading ? (
         <p>Loading...</p>

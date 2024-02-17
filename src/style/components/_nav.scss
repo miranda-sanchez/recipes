@@ -14,6 +14,7 @@ nav.navbar.bg-body-tertiary {
       border: 1px solid $main;
     }
     div.collapse.navbar-collapse {
+      transition: 0.3s ease;
       ul li {
         margin-right: 40px;
         position: relative;
@@ -33,5 +34,6 @@ nav.navbar.bg-body-tertiary {
         }
       }
     }
+    
   }
 }
