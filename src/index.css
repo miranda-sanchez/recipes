@@ -76,6 +76,16 @@ button:hover {
   border: 1px solid #36485d;
 }
 
+.btn-action {
+  background-color: #db7752;
+  border: none;
+  color: #fff;
+}
+.btn-action:hover {
+  background-color: rgba(219, 119, 82, 0.9);
+  border: none;
+}
+
 @media (min-width: 576px) {
   body {
     font-size: 16px;
@@ -95,23 +105,24 @@ nav.navbar.bg-body-tertiary div.container-fluid {
   border-bottom: 1px solid #36485d;
   padding: 10px 20px;
   background-color: #ECF8F8;
+  /* .nav-link, .navbar-toggler, .navbar-toggler-icon {
+    color: $main;
+  }
+  button.navbar-toggler {
+    margin-left: auto;
+    border: 1px solid $main;
+  } */
 }
-nav.navbar.bg-body-tertiary div.container-fluid .nav-link, nav.navbar.bg-body-tertiary div.container-fluid .navbar-toggler, nav.navbar.bg-body-tertiary div.container-fluid .navbar-toggler-icon {
-  color: #36485d;
+nav.navbar.bg-body-tertiary div.container-fluid .nav-logo img {
+  height: 60px;
+  margin-right: 40px;
 }
-nav.navbar.bg-body-tertiary div.container-fluid button.navbar-toggler {
-  margin-left: auto;
-  border: 1px solid #36485d;
-}
-nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse {
-  transition: 0.3s ease;
-}
-nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul li {
+nav.navbar.bg-body-tertiary div.container-fluid ul.navbar-nav li.nav-item {
   margin-right: 40px;
   position: relative;
   max-width: fit-content;
 }
-nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul li::after {
+nav.navbar.bg-body-tertiary div.container-fluid ul.navbar-nav li.nav-item::after {
   content: "";
   position: absolute;
   left: 0;
@@ -121,8 +132,53 @@ nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul 
   background-color: #36485d;
   transition: width 0.3s ease;
 }
-nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul li:hover::after {
+nav.navbar.bg-body-tertiary div.container-fluid ul.navbar-nav li.nav-item:hover::after {
   width: 100%;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .mobile-toggler button {
+  width: 46px;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog {
+  margin: 0;
+  width: 60%;
+  min-width: 250px;
+  background-color: rgba(236, 248, 248, 0.5);
+  transition: all 1s ease;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-content {
+  border-radius: 0;
+  height: 100vh;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  width: 100%;
+  border-bottom: 1px solid #36485d;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-header img {
+  height: 60px;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-body ul {
+  display: grid;
+  justify-content: center;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-body ul .modal-line {
+  margin: 1rem 0;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .icon {
+  font-size: 30px;
+}
+nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .icon:hover {
+  color: #db7752;
 }
 
 .hero {
@@ -139,6 +195,7 @@ nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul 
 .hero form.d-flex {
   width: 100%;
   max-width: 600px;
+  margin: 0 1rem;
 }
 .hero form.d-flex input {
   border: 1px solid #36485d;
@@ -147,14 +204,6 @@ nav.navbar.bg-body-tertiary div.container-fluid div.collapse.navbar-collapse ul 
 .hero form.d-flex input:focus {
   box-shadow: none;
   border: 1px solid #db7752;
-}
-.hero form.d-flex button {
-  background-color: #db7752;
-  border: none;
-  color: #fff;
-}
-.hero form.d-flex button:hover {
-  background-color: rgba(219, 119, 82, 0.9);
 }
 
 .filter-btn {

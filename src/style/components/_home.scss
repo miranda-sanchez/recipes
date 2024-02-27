@@ -13,23 +13,14 @@
     form.d-flex {
         width: 100%;
         max-width: 600px;
-        
+        margin: 0 1rem;
         input {
             border: 1px solid $main;
-        border-radius: 5px;
+            border-radius: 5px;
         &:focus {
             box-shadow: none;
             border: 1px solid $action;
-            
         }
-        }
-        button {
-            background-color: $action;
-            border: none;
-            color: #fff;
-            &:hover {
-                background-color: rgba($action, 0.9);
-            }
         }
     }
 }

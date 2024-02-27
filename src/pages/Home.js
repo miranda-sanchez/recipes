@@ -131,7 +131,7 @@ const Home = ({ title }) => {
             onFocus={handleSearchFocus}
             onBlur={handleSearchBlur}
           />
-          <button className="btn btn-outline-success" type="submit">
+          <button className="btn btn-outline-success btn-action" type="submit">
             <FaSearch />
           </button>
         </form>
