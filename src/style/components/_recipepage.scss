@@ -1,0 +1,65 @@
+@use "../base/_colors" as *;
+.RecipePage {
+    margin: 0 1rem;
+    .ingredients-container {
+        border: 1px solid $main;
+        max-width: 300px;
+        margin: 0 auto;
+        .ingredients {
+            padding: 1rem;
+            margin-right: 1rem;
+            h3 {
+                text-align: center;
+            }
+            ul {
+                li {
+                    list-style-type: disc;
+                    list-style-position: inside;
+                }
+            }
+        }
+    }
+    .instructions {
+        padding: 1rem;
+        h3 {
+            text-align: center;
+        }
+        img {
+            width: 90%;
+            max-width: 500px;
+            margin: 0 auto;
+            display: block;
+        }
+        div {
+            margin: 1rem 0;
+            p {
+                text-transform: lowercase;
+                
+            }
+
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .RecipePage {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        column-gap: 1.5rem;
+        h1 {
+            grid-column: span 2;
+        }
+        .ingredients-container {
+            padding-top: 0;
+            height: 100%;
+            width: 300px;
+        }
+        .ingredients {
+            float: left;
+            position: fixed;
+        }
+        .instructions {
+            border: 1px solid $main;
+        }
+    }
+}

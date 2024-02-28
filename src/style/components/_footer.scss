@@ -3,21 +3,32 @@
 footer {
     width: 100%;
     text-align: center;
-    background: $main;
-    color: $background;
-    padding: 10px;
+    background: $background;
+    color: $main;
+    padding: 1rem;
+    border-top: 1px solid $main;
+    margin-top: 2rem;
+    .footer-nav li{
+        border-right: 1px solid $main;
+        &:last-child {
+            border: none;
+        }
+    }
     ul {
         display: flex;
         justify-content: center;
         li {
             list-style-type: none;
-            margin: 0 1rem;
+            padding: 0 1rem;
             a, a:active, a:visited{
-                color: $background;
+                color: $main;
                 text-decoration: none;
               }
             a:hover {
-                color: rgba($background, 0.8);
+                color: $action;
+            }
+            .icon {
+                font-size: 30px;
             }
         }
     }

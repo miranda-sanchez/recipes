@@ -17,10 +17,10 @@
         input {
             border: 1px solid $main;
             border-radius: 5px;
-        &:focus {
-            box-shadow: none;
-            border: 1px solid $action;
-        }
+            &:focus {
+                box-shadow: none;
+                border: 1px solid $action;
+            }
         }
     }
 }
@@ -30,6 +30,7 @@
     margin: 1rem;
     margin-top: 0;
 }
+
 .main-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -37,8 +38,10 @@
     .accordion-item{
         min-width: 100px;
         margin: 0.5rem 0;
-        .accordion-header button {
-                padding-right: 0.5rem;
+        .accordion-header {
+                padding: 0;
+            button {
+                font-family: "Poppins", sans-serif;;
                 border: 1px solid $gray;
                 &:focus {
                     box-shadow: none;
@@ -47,6 +50,7 @@
 
                 }
             }
+        }
             .accordion-collapse {
                 border: 1px solid $gray;
                 padding: 0.5rem;

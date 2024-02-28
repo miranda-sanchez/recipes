@@ -12,7 +12,7 @@ const Nav = () => {
             <img src={logo} alt="Logo" />
           </Link>
         </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link" to="/">

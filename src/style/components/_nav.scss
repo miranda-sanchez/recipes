@@ -10,19 +10,10 @@ nav.navbar.bg-body-tertiary {
       height: 60px;
       margin-right: 40px;
     }
-    /* .nav-link, .navbar-toggler, .navbar-toggler-icon {
-      color: $main;
-    }
-    button.navbar-toggler {
-      margin-left: auto;
-      border: 1px solid $main;
-    } */
     ul.navbar-nav {
       li.nav-item {
         margin-right: 40px;
         position: relative;
-        max-width: fit-content;
-        
         &::after{
           content: '';
           position: absolute;
