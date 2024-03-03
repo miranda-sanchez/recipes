@@ -1,0 +1,40 @@
+@use "../base/_colors.scss" as *;
+
+.LetsTalk {
+    background-image: url('img/hero.PNG');
+    background-repeat: no-repeat;
+    background-position: center left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .content {
+        background-color: $background;
+        border: 1px solid $main;
+        max-width: 500px;
+        width: 90%;
+        h2 {
+            background-color: $background;
+        }
+        .contact-form {
+            display: grid;
+            padding: 1rem;
+            background-color: $background;
+            input, textarea {
+                border: 1px solid $gray;
+                padding: 0.2rem;
+                &:focus {
+                    outline: none;
+                    border: 1px solid $main;
+                }
+            }
+            textarea {
+                resize: none;
+            }
+            input, button, textarea {
+                margin-top: 1rem;
+            }
+        }
+    }
+    
+}

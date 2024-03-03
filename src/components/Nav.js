@@ -25,7 +25,9 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <button>Let's talk</button>
+              <Link to="/lets-talk">
+                <button>Let's talk</button>
+              </Link>
             </li>
           </ul>
         </div>
@@ -71,7 +73,9 @@ const Nav = () => {
                     </Link>
                   </li>
                   <li>
-                    <button>Let's talk</button>
+                    <Link to="/lets-talk">
+                      <button>Let's talk</button>
+                    </Link>
                   </li>
                 </ul>
               </div>

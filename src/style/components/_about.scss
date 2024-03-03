@@ -5,6 +5,8 @@
     overflow: hidden;
     .content {
         grid-template-columns: 1fr 1fr;
+        width: 80%;
+        max-width: 700px;
         float: left;
     }
     figure {

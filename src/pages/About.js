@@ -9,10 +9,9 @@ const About = () => {
       <section className="content">
         <h2>About Us</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-          molestiae sed quidem porro unde quia veritatis pariatur temporibus
-          illum incidunt? Quidem odio blanditiis veritatis dolorum aliquam porro
-          dolor doloremque unde.
+          This website was made for the purpose of practicing ReactJs. All
+          illustrations were made by me, Miranda Sanchez. Thank you very much
+          for visiting it!
         </p>
         <Link to="/">
           <button className="back-home-btn">Go back Home</button>

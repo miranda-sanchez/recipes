@@ -340,6 +340,8 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
 }
 .AboutUs .content {
   grid-template-columns: 1fr 1fr;
+  width: 80%;
+  max-width: 700px;
   float: left;
 }
 .AboutUs figure {
@@ -369,6 +371,44 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
   }
 }
 
+.LetsTalk {
+  background-image: url("img/hero.PNG");
+  background-repeat: no-repeat;
+  background-position: center left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.LetsTalk .content {
+  background-color: #ECF8F8;
+  border: 1px solid #36485d;
+  max-width: 500px;
+  width: 90%;
+}
+.LetsTalk .content h2 {
+  background-color: #ECF8F8;
+}
+.LetsTalk .content .contact-form {
+  display: grid;
+  padding: 1rem;
+  background-color: #ECF8F8;
+}
+.LetsTalk .content .contact-form input, .LetsTalk .content .contact-form textarea {
+  border: 1px solid #b9b9b9;
+  padding: 0.2rem;
+}
+.LetsTalk .content .contact-form input:focus, .LetsTalk .content .contact-form textarea:focus {
+  outline: none;
+  border: 1px solid #36485d;
+}
+.LetsTalk .content .contact-form textarea {
+  resize: none;
+}
+.LetsTalk .content .contact-form input, .LetsTalk .content .contact-form button, .LetsTalk .content .contact-form textarea {
+  margin-top: 1rem;
+}
+
 footer {
   width: 100%;
   text-align: center;
@@ -376,7 +416,6 @@ footer {
   color: #36485d;
   padding: 1rem;
   border-top: 1px solid #36485d;
-  margin-top: 2rem;
 }
 footer .footer-nav li {
   border-right: 1px solid #36485d;
