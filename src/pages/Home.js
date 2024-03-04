@@ -11,7 +11,6 @@ const Home = ({ title }) => {
   const [areas, setAreas] = useState([]);
 
   const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
   //Handling filter options
@@ -39,11 +38,9 @@ const Home = ({ title }) => {
 
   const fetchRecipesByCategory = async (category) => {
     try {
-      setLoading(true);
       const response = await mealDBAPI.get(`/filter.php?c=${category}`);
       const { meals } = response.data;
       setRecipes(meals);
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching recipes:", error);
     }
@@ -51,11 +48,9 @@ const Home = ({ title }) => {
 
   const fetchRecipesByArea = async (area) => {
     try {
-      setLoading(true);
       const response = await mealDBAPI.get(`/filter.php?a=${area}`);
       const { meals } = response.data;
       setRecipes(meals);
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching recipes:", error);
     }
@@ -67,7 +62,6 @@ const Home = ({ title }) => {
         const response = await mealDBAPI.get("/categories.php");
         const { categories } = response.data;
         setCategories(categories);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -138,107 +132,97 @@ const Home = ({ title }) => {
       </section>
 
       <h1>{title}</h1>
-
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <h2>Recipes</h2>
-          <button className="filter-btn" onClick={toggleAccordion}>
-            Filter <FaSearchPlus />
-          </button>
-          <section className="main-container">
-            <div
-              className={`accordion ${accordionOpen ? "open" : ""}`}
-              style={{
-                display:
-                  width < 768 ? (accordionOpen ? "block" : "none") : "block",
-              }}
+      <h2>Recipes</h2>
+      <button className="filter-btn" onClick={toggleAccordion}>
+        Filter <FaSearchPlus />
+      </button>
+      <section className="main-container">
+        <div
+          className={`accordion ${accordionOpen ? "open" : ""}`}
+          style={{
+            display: width < 768 ? (accordionOpen ? "block" : "none") : "block",
+          }}
+        >
+          <div className="accordion-item categories">
+            <h3 className="accordion-header" id="categoriesHeader">
+              <button
+                className="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#categoriesCollapse"
+                aria-expanded="true"
+                aria-controls="categoriesCollapse"
+              >
+                Categories
+              </button>
+            </h3>
+            <ul
+              id="categoriesCollapse"
+              className="accordion-collapse collapse show categories-list"
+              aria-labelledby="categoriesHeader"
+              data-bs-parent="#accordionExample"
             >
-              <div className="accordion-item categories">
-                <h3 className="accordion-header" id="categoriesHeader">
+              {categories.map((category) => (
+                <li key={category.idCategory}>
                   <button
-                    className="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#categoriesCollapse"
-                    aria-expanded="true"
-                    aria-controls="categoriesCollapse"
+                    onClick={() => fetchRecipesByCategory(category.strCategory)}
                   >
-                    Categories
+                    {category.strCategory}
                   </button>
-                </h3>
-                <ul
-                  id="categoriesCollapse"
-                  className="accordion-collapse collapse show categories-list"
-                  aria-labelledby="categoriesHeader"
-                  data-bs-parent="#accordionExample"
-                >
-                  {categories.map((category) => (
-                    <li key={category.idCategory}>
-                      <button
-                        onClick={() =>
-                          fetchRecipesByCategory(category.strCategory)
-                        }
-                      >
-                        {category.strCategory}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {/* Area Filter */}
-              <div className="accordion-item area">
-                <h3 className="accordion-header" id="areaHeader">
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Area Filter */}
+          <div className="accordion-item area">
+            <h3 className="accordion-header" id="areaHeader">
+              <button
+                className="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#areaCollapse"
+                aria-expanded="true"
+                aria-controls="areaCollapse"
+              >
+                Areas
+              </button>
+            </h3>
+            <ul
+              id="areaCollapse"
+              className="accordion-collapse collapse show area-list"
+              aria-labelledby="areaHeader"
+              data-bs-parent="#accordionExample"
+            >
+              {areas.map((area) => (
+                <li key={area}>
                   <button
-                    className="accordion-button"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#areaCollapse"
-                    aria-expanded="true"
-                    aria-controls="areaCollapse"
+                    onClick={() => {
+                      fetchRecipesByArea(area);
+                    }}
                   >
-                    Areas
+                    {area}
                   </button>
-                </h3>
-                <ul
-                  id="areaCollapse"
-                  className="accordion-collapse collapse show area-list"
-                  aria-labelledby="areaHeader"
-                  data-bs-parent="#accordionExample"
-                >
-                  {areas.map((area) => (
-                    <li key={area}>
-                      <button
-                        onClick={() => {
-                          fetchRecipesByArea(area);
-                        }}
-                      >
-                        {area}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-            <div className="recipes">
-              <ul className="recipes-list">
-                {recipes.map((recipe) => (
-                  <li key={recipe.idMeal}>
-                    <Link to={`/recipes/${categoryName}/${recipe.idMeal}`}>
-                      <div className="recipe-item">
-                        <img src={recipe.strMealThumb} alt={recipe.strMeal} />
-                        <span>{recipe.strMeal}</span>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        </>
-      )}
+        <div className="recipes">
+          <ul className="recipes-list">
+            {recipes.map((recipe) => (
+              <li key={recipe.idMeal}>
+                <Link to={`/recipes/${categoryName}/${recipe.idMeal}`}>
+                  <div className="recipe-item">
+                    <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+                    <span>{recipe.strMeal}</span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </main>
   );
 };

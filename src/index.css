@@ -275,23 +275,41 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
   }
 }
 .RecipePage {
-  margin: 0 1rem;
+  margin: 1rem;
 }
 .RecipePage .ingredients-container {
-  border: 1px solid #36485d;
+  /* border: 1px solid $main;
   max-width: 300px;
-  margin: 0 auto;
+  margin: 0 auto; */
 }
 .RecipePage .ingredients-container .ingredients {
   padding: 1rem;
   margin-right: 1rem;
 }
+.RecipePage .ingredients-container .ingredients .ingredients-btn {
+  position: fixed;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+}
 .RecipePage .ingredients-container .ingredients h3 {
-  text-align: center;
+  display: none;
+}
+.RecipePage .ingredients-container .ingredients ul {
+  display: none;
 }
 .RecipePage .ingredients-container .ingredients ul li {
   list-style-type: disc;
   list-style-position: inside;
+}
+.RecipePage .modal-content {
+  border: 1px solid #36485d;
+}
+.RecipePage .modal-content .modal-header {
+  border-bottom: 1px solid #36485d;
+}
+.RecipePage .modal-content .modal-header button {
+  width: 40px;
 }
 .RecipePage .instructions {
   padding: 1rem;
@@ -304,6 +322,7 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
   max-width: 500px;
   margin: 0 auto;
   display: block;
+  border: 1px solid #36485d;
 }
 .RecipePage .instructions div {
   margin: 1rem 0;
@@ -322,13 +341,26 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
     grid-column: span 2;
   }
   .RecipePage .ingredients-container {
+    border: 1px solid #36485d;
+    max-width: 300px;
+    margin: 0 auto;
     padding-top: 0;
     height: 100%;
     width: 300px;
   }
-  .RecipePage .ingredients {
+  .RecipePage .ingredients-container .ingredients {
     float: left;
     position: fixed;
+  }
+  .RecipePage .ingredients-container .ingredients .ingredients-btn {
+    display: none;
+  }
+  .RecipePage .ingredients-container .ingredients ul {
+    display: block;
+  }
+  .RecipePage .ingredients-container .ingredients h3 {
+    text-align: center;
+    display: block;
   }
   .RecipePage .instructions {
     border: 1px solid #36485d;
@@ -404,6 +436,7 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
 }
 .LetsTalk .content .contact-form textarea {
   resize: none;
+  height: 250px;
 }
 .LetsTalk .content .contact-form input, .LetsTalk .content .contact-form button, .LetsTalk .content .contact-form textarea {
   margin-top: 1rem;
