@@ -158,7 +158,7 @@ const Home = ({ title }) => {
             </h3>
             <ul
               id="categoriesCollapse"
-              className="accordion-collapse collapse show categories-list"
+              className="accordion-collapse collapse categories-list"
               aria-labelledby="categoriesHeader"
               data-bs-parent="#accordionExample"
             >
@@ -189,7 +189,7 @@ const Home = ({ title }) => {
             </h3>
             <ul
               id="areaCollapse"
-              className="accordion-collapse collapse show area-list"
+              className="accordion-collapse collapse area-list"
               aria-labelledby="areaHeader"
               data-bs-parent="#accordionExample"
             >
