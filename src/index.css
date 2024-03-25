@@ -276,6 +276,7 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
 }
 .RecipePage {
   margin: 1rem;
+  overflow-x: hidden;
 }
 .RecipePage .ingredients-container {
   /* border: 1px solid $main;

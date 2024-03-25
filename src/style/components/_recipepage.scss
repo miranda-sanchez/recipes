@@ -1,6 +1,7 @@
 @use "../base/_colors" as *;
 .RecipePage {
     margin: 1rem;
+    overflow-x: hidden;
     .ingredients-container {
         /* border: 1px solid $main;
         max-width: 300px;
