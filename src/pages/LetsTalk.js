@@ -6,13 +6,21 @@ const LetsTalk = () => {
       <section className="content">
         <h2>Contact Us</h2>
         <form className="contact-form" method="post" action="#">
-          <input type="text" id="name" name="name" aria-label="Name" required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            aria-label="Name"
+            required
+            placeholder="Name"
+          />
 
           <input
             type="email"
             id="email"
             name="email"
             aria-label="Email"
+            placeholder="Email"
             required
           />
 
