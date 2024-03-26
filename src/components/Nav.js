@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaBars, FaLinkedin, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../img/logo.png";
+import logo from "../img/logo.PNG";
 
 const Nav = () => {
   // Controlling the visibility of the modal
