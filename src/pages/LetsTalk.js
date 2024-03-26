@@ -5,14 +5,14 @@ const LetsTalk = () => {
     <main className="LetsTalk">
       <section className="content">
         <h2>Contact Us</h2>
-        <form className="contact-form" method="post" action="#">
+        <form className="contact-form" action="#">
           <input
             type="text"
             id="name"
             name="name"
             aria-label="Name"
-            required
             placeholder="Name"
+            required
           />
 
           <input
@@ -28,6 +28,7 @@ const LetsTalk = () => {
             id="message"
             name="message"
             aria-label="Message"
+            placeholder="Whatever you want to share with us :)"
             required
           ></textarea>
 

@@ -22,11 +22,12 @@
             background-color: $background;
             input, textarea {
                 border: 1px solid $gray;
-                padding: 0.2rem;
+                padding: 0.5rem;
                 &:focus {
                     outline: none;
                     border: 1px solid $main;
                 }
+                
             }
             textarea {
                 resize: none;

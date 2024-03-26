@@ -429,7 +429,7 @@ nav.navbar.bg-body-tertiary div.container-fluid .modal-dialog .modal-footer ul .
 }
 .LetsTalk .content .contact-form input, .LetsTalk .content .contact-form textarea {
   border: 1px solid #b9b9b9;
-  padding: 0.2rem;
+  padding: 0.5rem;
 }
 .LetsTalk .content .contact-form input:focus, .LetsTalk .content .contact-form textarea:focus {
   outline: none;
